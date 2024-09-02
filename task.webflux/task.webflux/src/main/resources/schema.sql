@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS task;
+CREATE TABLE IF NOT EXISTS task(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(60) NOT NULL,
+    description VARCHAR(60) NOT NULL,
+    status VARCHAR(30)  NOT NULL,
+    id_user BIGINT NOT NULL
+);
