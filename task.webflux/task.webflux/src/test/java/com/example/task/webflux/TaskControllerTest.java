@@ -97,14 +97,14 @@ public class TaskControllerTest {
                 .expectStatus().isOk();
     }
 
-    @Test
+  @Test
     public void getTaskByIdUserTest(){
-        webClient.get().uri("/api/v2/task/get/user/{id}",1L)
+        webClient.get().uri("/api/v2/task/get/user/{id}", 1L)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(TaskEntity.class)
-                .value(task -> assertEquals(1L, task.size()));
-    }
+                .hasSize(1);
+  }
 }
 
 

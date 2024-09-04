@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TaskEntityAndTaskDTO {
-    public TaskEntity taskDTOToTaskEntity(TaskDTO taskDTO) {
+    public static TaskEntity taskDTOToTaskEntity(TaskDTO taskDTO) {
         return new TaskEntity(taskDTO.title(), taskDTO.description(), taskDTO.status(), taskDTO.idUser());
     }
 }
