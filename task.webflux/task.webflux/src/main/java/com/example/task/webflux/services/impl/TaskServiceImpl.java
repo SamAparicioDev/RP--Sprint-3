@@ -14,13 +14,11 @@ import reactor.core.publisher.Mono;
 public class TaskServiceImpl implements TaskService {
     @Autowired
     private TaskRepository taskRepository;
-    @Autowired
-    private TaskEntityAndTaskDTO taskEntityAndTaskDTO;
+
     @Override
     public Mono<TaskEntity> getTaskById(Long id) {
         return taskRepository.findById(id).switchIfEmpty(Mono.error(new TaskNotFoundException("Task not found")));
     }
-
     @Override
     public Flux<TaskEntity> getAllTasks() {
         return taskRepository.findAll();
@@ -28,7 +26,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Mono<TaskEntity> saveTask(TaskDTO task) {
-        return taskRepository.save(taskEntityAndTaskDTO.taskDTOToTaskEntity(task));
+        return taskRepository.save(TaskEntityAndTaskDTO.taskDTOToTaskEntity(task));
     }
 
     @Override
