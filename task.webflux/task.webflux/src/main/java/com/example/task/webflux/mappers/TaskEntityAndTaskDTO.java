@@ -10,4 +10,7 @@ public class TaskEntityAndTaskDTO {
     public static TaskEntity taskDTOToTaskEntity(TaskDTO taskDTO) {
         return new TaskEntity(taskDTO.title(), taskDTO.description(), taskDTO.status(), taskDTO.idUser());
     }
+    public static TaskDTO taskEntityToTaskDTO(TaskEntity taskEntity) {
+        return new TaskDTO(taskEntity.getTitle(), taskEntity.getDescription(), taskEntity.getStatus(), taskEntity.getIdUser());
+    }
 }
